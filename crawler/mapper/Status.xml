@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="crawler.mapper.Status">
+	<insert id="insertStatus" parameterType="Status">
+		insert ignore into status (id, uid, text, createdAt, repostsCount, commentsCount)
+		values (#{id}, #{uid}, #{text}, #{createdAt}, #{repostsCount}, #{commentsCount})
+	</insert>
+	<select id="listAllStatus" resultType="Status">
+		select *
+		from status
+	</select>
+</mapper>

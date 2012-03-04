@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="crawler.mapper.User">
+	<insert id="insertUser" parameterType="User">
+		insert ignore into user (id, screenName, province, city, description, gender, followersCount, friendsCount, statusesCount, createdAt)
+		values (#{id}, #{screenName}, #{province}, #{city}, #{description}, #{gender}, #{followerCnt}, #{friendCnt}, #{statusCnt}, #{createDate})
+	</insert>
+	<delete id="delUser" parameterType="String">
+		delete from user where id = #{id}
+	</delete>
+	<select id="queryAllUser" resultType="User">
+		select id as fId , screenName as fScreenName , province as fProvince , city as fCity , description as fDescription , gender as fGender ,
+			   followersCount as fFollowCnt , friendsCount as fFriendCnt, statusesCount as fStatusCnt , createdAt as fCreateDate
+		from user
+	</select>
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="crawler.mapper.Relationship">
+	<insert id="insertRelationship" parameterType="Relationship">
+		insert ignore into relationship (uid, friend_id)
+		values (#{uid}, #{fid})
+	</insert>
+	<select id="listAllRelationship" resultType="Relationship">
+		select uid as uid, friend_id as fid
+		from relationship
+	</select>
+</mapper>
